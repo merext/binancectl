@@ -16,4 +16,5 @@ var OrderCmd = &cobra.Command{
 func init() {
 	OrderCmd.AddCommand(GetCmd)
 	OrderCmd.AddCommand(ListCmd)
+	OrderCmd.AddCommand(CreateCmd)
 }
