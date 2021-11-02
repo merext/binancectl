@@ -8,11 +8,15 @@ import (
 	"github.com/merext/binancectl/v2/api"
 )
 
-func Get(symbol string) ([]*binance.BookTicker, error) {
-	price, err := api.Client.NewListBookTickersService().Symbol(symbol).Do(context.Background())
+func Get(symbol string) (*binance.BookTicker, error) {
+	prices, err := api.Client.NewListBookTickersService().Symbol(symbol).Do(context.Background())
 	if err != nil {
 		fmt.Println(err)
 		return nil, err
 	}
-	return price, nil
+
+	if len(prices) != 1 {
+		return nil, fmt.Errorf("To many symbols in response")
+	}
+	return prices[0], nil
 }
