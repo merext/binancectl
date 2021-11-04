@@ -1,7 +1,7 @@
 package stream
 
 import (
-	"github.com/merext/binancectl/v2/cmd/stream/book"
+	"github.com/merext/binancectl/v2/cli/stream/book"
 	"github.com/spf13/cobra"
 )
 

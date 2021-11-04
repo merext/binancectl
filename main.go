@@ -5,7 +5,7 @@ import (
 
 	"github.com/adshao/go-binance/v2"
 	"github.com/merext/binancectl/v2/api"
-	"github.com/merext/binancectl/v2/cmd"
+	cmd "github.com/merext/binancectl/v2/cli"
 	"github.com/rs/zerolog"
 )
 

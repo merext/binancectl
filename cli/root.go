@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/merext/binancectl/v2/cmd/get"
-	"github.com/merext/binancectl/v2/cmd/order"
-	"github.com/merext/binancectl/v2/cmd/stream"
-	"github.com/merext/binancectl/v2/cmd/trade"
+	"github.com/merext/binancectl/v2/cli/get"
+	"github.com/merext/binancectl/v2/cli/order"
+	"github.com/merext/binancectl/v2/cli/stream"
+	"github.com/merext/binancectl/v2/cli/trade"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
