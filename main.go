@@ -5,7 +5,7 @@ import (
 
 	"github.com/adshao/go-binance/v2"
 	"github.com/merext/binancectl/v2/api"
-	cmd "github.com/merext/binancectl/v2/cli"
+	"github.com/merext/binancectl/v2/cli"
 	"github.com/rs/zerolog"
 )
 
@@ -19,6 +19,6 @@ func main() {
 	//binance.UseTestnet = true
 	api.Client = binance.NewClient(apiKey, secretKey)
 
-	cmd.Execute()
+	cli.Execute()
 
 }

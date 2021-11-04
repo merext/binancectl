@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/merext/binancectl/v2/cli/get"
+	"github.com/merext/binancectl/v2/cli/account"
 	"github.com/merext/binancectl/v2/cli/order"
 	"github.com/merext/binancectl/v2/cli/stream"
 	"github.com/merext/binancectl/v2/cli/trade"
@@ -39,9 +39,10 @@ func init() {
 	cobra.OnInitialize(initConfig)
 
 	RootCmd.AddCommand(stream.StreamCmd)
-	RootCmd.AddCommand(get.GetCmd)
 	RootCmd.AddCommand(order.OrderCmd)
 	RootCmd.AddCommand(trade.TradeCmd)
+	RootCmd.AddCommand(account.AccountCmd)
+
 	// Here you will define your flags and configuration settings.
 	// Cobra supports persistent flags, which, if defined here,
 	// will be global for your application.

@@ -8,11 +8,11 @@ import (
 	"github.com/merext/binancectl/v2/api"
 )
 
-func List(symbol string) ([]*binance.SymbolPrice, error) {
-	prices, err := api.Client.NewListPricesService().Do(context.Background())
+func List(symbol string) ([]*binance.TradeV3, error) {
+	res, err := api.Client.NewListTradesService().Symbol(symbol).Do(context.Background())
 	if err != nil {
 		fmt.Println(err)
 		return nil, err
 	}
-	return prices, nil
+	return res, nil
 }
