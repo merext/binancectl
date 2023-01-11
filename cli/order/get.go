@@ -1,6 +1,7 @@
 package order
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/merext/binancectl/v2/api/order"
@@ -15,7 +16,7 @@ var GetCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		symbol, _ := cmd.Flags().GetString("symbol")
 		orderId, _ := cmd.Flags().GetInt64("orderId")
-		order, err := order.Get(symbol, orderId)
+		order, err := order.Get(context.Background(), symbol, orderId)
 		if err != nil {
 			fmt.Print(err)
 		}

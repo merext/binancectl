@@ -1,6 +1,7 @@
 package order
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/adshao/go-binance/v2"
@@ -19,9 +20,9 @@ var ListCmd = &cobra.Command{
 		var orders []*binance.Order
 		var err error
 		if all == true {
-			orders, err = order.List(symbol)
+			orders, err = order.List(context.Background(), symbol)
 		} else {
-			orders, err = order.ListOpen(symbol)
+			orders, err = order.ListOpen(context.Background(), symbol)
 		}
 		if err != nil {
 			fmt.Print(err)

@@ -29,6 +29,7 @@ to quickly create a Cobra application.`,
 		}
 		for _, p := range prices {
 			fmt.Println(p)
+			fmt.Println("test")
 		}
 
 	},

@@ -1,6 +1,7 @@
 package trade
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/merext/binancectl/v2/api/trade"
@@ -14,7 +15,7 @@ var ListCmd = &cobra.Command{
 	Short: "List trades",
 	Run: func(cmd *cobra.Command, args []string) {
 		symbol, _ := cmd.Flags().GetString("symbol")
-		prices, err := trade.List(symbol)
+		prices, err := trade.List(context.Background(), symbol)
 		if err != nil {
 			fmt.Print(err)
 		}

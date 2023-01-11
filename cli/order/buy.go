@@ -1,6 +1,7 @@
 package order
 
 import (
+	"context"
 	"fmt"
 
 	"github.com/merext/binancectl/v2/api/order"
@@ -17,7 +18,7 @@ var BuyCMD = &cobra.Command{
 		quantity, _ := cmd.Flags().GetString("quantity")
 		price, _ := cmd.Flags().GetString("price")
 
-		order, err := order.Buy(symbol, quantity, price)
+		order, err := order.Buy(context.Background(), symbol, quantity, price)
 		if err != nil {
 			fmt.Print(err)
 		}

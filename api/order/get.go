@@ -8,12 +8,16 @@ import (
 	"github.com/merext/binancectl/v2/api"
 )
 
-func Get(symbol string, orderId int64) (*binance.Order, error) {
-	order, err := api.Client.NewGetOrderService().Symbol(symbol).OrderID(orderId).
-		Do(context.Background())
+func Get(ctx context.Context, symbol string, orderId int64) (*binance.Order, error) {
+	order, err := api.Client.NewGetOrderService().
+		Symbol(symbol).
+		OrderID(orderId).
+		Do(ctx)
+
 	if err != nil {
 		fmt.Println(err)
 		return nil, err
 	}
+
 	return order, nil
 }

@@ -10,16 +10,17 @@ import (
 
 func Depth(symbol string) {
 	wsDepthHandler := func(event *binance.WsDepthEvent) {
-		//fmt.Printf("%+v\n", event)
 		b, err := json.Marshal(event)
 		if err != nil {
 			fmt.Println(err)
 		}
 		fmt.Println(string(b))
 	}
+
 	errHandler := func(err error) {
 		fmt.Println(err)
 	}
+
 	doneC, _, err := binance.WsDepthServe(symbol, wsDepthHandler, errHandler)
 	if err != nil {
 		fmt.Print(err)
@@ -29,8 +30,6 @@ func Depth(symbol string) {
 	// use stopC to exit
 	go func() {
 		time.Sleep(5 * time.Second)
-		//stopC <- struct{}{}
 	}()
-	// remove this if you do not want to be blocked here
 	<-doneC
 }

@@ -8,8 +8,7 @@ import (
 	"github.com/merext/binancectl/v2/api"
 )
 
-func Buy(symbol string, quantity string, price string) (*binance.CreateOrderResponse, error) {
-
+func Buy(ctx context.Context, symbol string, quantity string, price string) (*binance.CreateOrderResponse, error) {
 	request := api.Client.NewCreateOrderService().
 		Symbol(symbol).
 		Side(binance.SideTypeBuy).
@@ -25,10 +24,11 @@ func Buy(symbol string, quantity string, price string) (*binance.CreateOrderResp
 			Type(binance.OrderTypeMarket)
 	}
 
-	order, err := request.Do(context.Background())
+	order, err := request.Do(ctx)
 	if err != nil {
 		fmt.Println(err)
 		return nil, err
 	}
+
 	return order, nil
 }
