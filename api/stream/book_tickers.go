@@ -8,7 +8,7 @@ import (
 )
 
 func AllBookTickers() {
-	wsBookTickerHandler := func(event *binance.WsBookTickerEvent) {
+  wsBookTickerHandler := func(event *binance.WsBookTickerEvent) {
 		utils.OPrint(event)
 	}
 

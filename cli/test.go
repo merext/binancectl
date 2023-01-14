@@ -22,14 +22,18 @@ to quickly create a Cobra application.`,
 		fmt.Println("test called")
 		// binance.GetAccountService
 
-		prices, err := api.Client.NewListPricesService().Do(context.Background())
-		if err != nil {
+		prices, err := api.Client.
+      NewListPricesService().
+      Do(context.Background())
+		
+    if err != nil {
 			fmt.Println(err)
 			return
 		}
-		for _, p := range prices {
+		
+    for _, p := range prices {
 			fmt.Println(p)
-			fmt.Println("test")
+      fmt.Println("test")
 		}
 
 	},
